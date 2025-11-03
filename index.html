@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scratch App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.jsx">
+
+  const container = document.createElement('div');
+  container.classList.add('confetti-container');
+  document.body.appendChild(container);
+
+  for (let i = 0; i < 40; i++) { // fewer pieces = more space between
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.animationDelay = Math.random() * 8 + 's';
+    confetti.style.setProperty('--confetti-color', getRandomColor());
+    container.appendChild(confetti);
+  }
+
+  function getRandomColor() {
+    const colors = ['#ff4081', '#4caf50', '#2196f3', '#ffeb3b', '#ff5722'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+</script>
+  </body>
+  </html>
+
